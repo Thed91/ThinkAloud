@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { ChatInput, ChatMessages } from './components';
 import type { ChatMessage } from './types';
 import { sendMessage } from './services/api';
@@ -7,11 +7,6 @@ function App() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isLoading]);
 
   const handleSendMessage = async (content: string) => {
     setError(null);
@@ -35,8 +30,8 @@ function App() {
   const hasMessages = messages.length > 0 || isLoading;
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-main">
-      <main className="flex-1 flex flex-col max-w-3xl w-full mx-auto px-6 py-8">
+    <div className="flex flex-col h-screen bg-gradient-main overflow-hidden">
+      <main className="flex-1 flex flex-col max-w-3xl w-full mx-auto px-6 py-8 min-h-0">
         {!hasMessages ? (
           <div className="flex-1 flex flex-col justify-center">
             <div
@@ -59,9 +54,8 @@ function App() {
             <ChatInput onSendMessage={handleSendMessage} disabled={isLoading} />
           </div>
         ) : (
-          <div className="flex-1 overflow-hidden flex flex-col">
+          <div className="flex-1 flex flex-col min-h-0">
             <ChatMessages messages={messages} isLoading={isLoading} />
-            <div ref={messagesEndRef} />
             <ChatInput onSendMessage={handleSendMessage} disabled={isLoading} />
           </div>
         )}

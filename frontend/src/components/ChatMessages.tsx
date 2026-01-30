@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import type { ChatMessage } from '../types';
 
 interface ChatMessagesProps {
@@ -6,8 +7,14 @@ interface ChatMessagesProps {
 }
 
 export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isLoading]);
+
   return (
-    <div className="flex-1 overflow-y-auto space-y-4 py-4">
+    <div className="flex-1 overflow-y-auto space-y-4 py-4 min-h-0">
       {messages.map((msg) => (
         <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
           <div
@@ -31,6 +38,8 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
           </div>
         </div>
       )}
+
+      <div ref={messagesEndRef} />
     </div>
   );
 }
