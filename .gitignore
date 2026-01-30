@@ -12,3 +12,6 @@ frontend/dist/
 *.local
 .env
 appsettings.*.local.json
+
+# Claude
+.claude/
