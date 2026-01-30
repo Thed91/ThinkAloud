@@ -8,7 +8,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddHttpClient("Gemini", client =>
 {
     client.BaseAddress = new Uri("https://generativelanguage.googleapis.com/");
-    client.Timeout = TimeSpan.FromSeconds(30);
+    client.Timeout = TimeSpan.FromSeconds(120);
 });
 
 builder.Services.AddSingleton<IChatService, GeminiChatService>();
