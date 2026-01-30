@@ -29,14 +29,13 @@ AI-powered chat application with voice input support. Built with React and .NET.
 
 #### 1. Configure the backend
 
-Create `ThinkAloud/appsettings.Development.json`:
+Create `ThinkAloud/appsettings.json`:
 
 ```json
-{
-  "Gemini": {
-    "ApiKey": "YOUR_GEMINI_API_KEY"
-  }
-}
+"Gemini": {
+"ApiKey": "YOUR_GEMINI_API_KEY",
+"Model": "gemini-2.5-flash"
+},
 ```
 
 #### 2. Run the backend
@@ -78,29 +77,6 @@ docker-compose up --build
 - Frontend: http://localhost:3000
 - API: http://localhost:8080
 
-## Deploy to Render.com
-
-1. Push the repository to GitHub
-
-2. In Render Dashboard, click **New > Blueprint**
-
-3. Connect your repository
-
-4. Render will detect `render.yaml` and create two services:
-   - `thinkaloud-api` (backend)
-   - `thinkaloud-frontend` (frontend)
-
-5. Configure environment variables:
-
-   **For `thinkaloud-api`:**
-   - `Gemini__ApiKey` = your Gemini API key
-   - `Cors__Origins__0` = your frontend URL (e.g., `https://thinkaloud-frontend.onrender.com`)
-
-   **For `thinkaloud-frontend`:**
-   - `VITE_API_URL` = your API URL (e.g., `https://thinkaloud-api.onrender.com/api`)
-
-6. Deploy!
-
 ## Project Structure
 
 ```
@@ -129,8 +105,7 @@ ThinkAloud/
 │   ├── Dockerfile
 │   └── nginx.conf
 │
-├── docker-compose.yml
-└── render.yaml
+└── docker-compose.yml
 ```
 
 ## Voice Input

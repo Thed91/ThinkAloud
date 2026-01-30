@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s /b \"C:\\\\Users\\\\fmikh\\\\RiderProjects\\\\ThinkAloud\")",
+      "Bash(findstr:*)",
+      "Bash(npm create vite@latest frontend -- --template react-ts:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(dotnet build:*)",
+      "Bash(npm run build:*)",
+      "Bash(git status:*)"
+    ]
+  }
+}

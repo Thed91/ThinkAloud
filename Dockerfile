@@ -4,9 +4,10 @@ EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
-COPY ["ThinkAloud.csproj", "."]
-RUN dotnet restore
-COPY . .
+COPY ThinkAloud/*.csproj ./ThinkAloud/
+RUN dotnet restore ThinkAloud/ThinkAloud.csproj
+COPY ThinkAloud/. ./ThinkAloud/
+WORKDIR /src/ThinkAloud
 RUN dotnet build -c Release -o /app/build
 
 FROM build AS publish
