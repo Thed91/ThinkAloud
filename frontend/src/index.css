@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Inter, Roboto, sans-serif;
+}
+
+.bg-gradient-main {
+  background: linear-gradient(135deg, #052c65 0%, #011638 100%);
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #0f3057;
+  border: 1px solid #1e4b8a;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.chat-textarea {
+  flex: 1;
+  background-color: #0f3057;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 12px 8px;
+  border: none;
+  outline: none;
+  resize: none;
+  max-height: 150px;
+  scrollbar-width: thin;
+  scrollbar-color: #1e4b8a #0f3057;
+}
+
+.chat-textarea::placeholder {
+  color: #6a85a8;
+}
+
+.chat-textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-textarea::-webkit-scrollbar-track {
+  background: #0f3057;
+  border-radius: 4px;
+}
+
+.chat-textarea::-webkit-scrollbar-thumb {
+  background: #1e4b8a;
+  border-radius: 4px;
+}
+
+.chat-textarea::-webkit-scrollbar-thumb:hover {
+  background: #2b6cb0;
+}
+
+.chat-submit-btn {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
