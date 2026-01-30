@@ -12,6 +12,7 @@ frontend/dist/
 *.local
 .env
 appsettings.*.local.json
+ThinkAloud/appsettings.json
 
 # Claude
 .claude/
