@@ -2,6 +2,10 @@
 
 AI-powered chat application with voice input support. Built with React and .NET.
 
+**Live Demo:** [https://thinkaloud-ui.onrender.com/](https://thinkaloud-ui.onrender.com/)
+
+> **Note:** This project is deployed on Render's free tier, so the first request after a period of inactivity may take up to 1 minute while the server wakes up. Please be patient.
+
 ## Features
 
 - Chat interface with Google Gemini AI
@@ -81,6 +85,8 @@ docker-compose up --build
 
 ```
 ThinkAloud/
+├── Dockerfile                  # Backend Dockerfile
+├── docker-compose.yml
 ├── ThinkAloud/                 # Backend (.NET)
 │   ├── Controllers/
 │   │   └── ChatController.cs
@@ -90,22 +96,19 @@ ThinkAloud/
 │   ├── Services/
 │   │   ├── IChatService.cs
 │   │   └── GeminiChatService.cs
-│   ├── Dockerfile
 │   ├── Program.cs
 │   └── appsettings.json
 │
-├── frontend/                   # Frontend (React)
-│   ├── src/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── services/
-│   │   ├── types/
-│   │   ├── App.tsx
-│   │   └── index.css
-│   ├── Dockerfile
-│   └── nginx.conf
-│
-└── docker-compose.yml
+└── frontend/                   # Frontend (React)
+    ├── src/
+    │   ├── components/
+    │   ├── hooks/
+    │   ├── services/
+    │   ├── types/
+    │   ├── App.tsx
+    │   └── index.css
+    ├── Dockerfile
+    └── nginx.conf
 ```
 
 ## Voice Input
