@@ -3,3 +3,11 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Environment
+*.local
+appsettings.*.local.json
