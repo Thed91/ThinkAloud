@@ -56,7 +56,9 @@ function App() {
         ) : (
           <div className="flex-1 flex flex-col min-h-0">
             <ChatMessages messages={messages} isLoading={isLoading} />
-            <ChatInput onSendMessage={handleSendMessage} disabled={isLoading} />
+            <div className="pt-4">
+              <ChatInput onSendMessage={handleSendMessage} disabled={isLoading} />
+            </div>
           </div>
         )}
 
