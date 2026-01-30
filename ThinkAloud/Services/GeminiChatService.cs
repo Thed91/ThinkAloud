@@ -10,13 +10,11 @@ public class GeminiChatService : IChatService
     private readonly string _apiKey;
     private readonly string _model;
 
-    public GeminiChatService(IConfiguration configuration)
+    public GeminiChatService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
     {
-        _httpClient = new HttpClient();
+        _httpClient = httpClientFactory.CreateClient("Gemini");
         _apiKey = configuration["Gemini:ApiKey"] ?? throw new ArgumentNullException("Gemini:ApiKey is not configured");
         _model = configuration["Gemini:Model"] ?? "gemini-2.5-flash";
-
-        _httpClient.BaseAddress = new Uri("https://generativelanguage.googleapis.com/");
     }
 
     public async Task<ChatResponse> SendMessageAsync(string message)

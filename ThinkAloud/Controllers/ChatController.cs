@@ -9,6 +9,7 @@ namespace ThinkAloud.Controllers;
 public class ChatController : ControllerBase
 {
     private readonly IChatService _chatService;
+    private const int MaxMessageLength = 10000;
 
     public ChatController(IChatService chatService)
     {
@@ -24,6 +25,15 @@ public class ChatController : ControllerBase
             {
                 Success = false,
                 Error = "Message cannot be empty"
+            });
+        }
+
+        if (request.Message.Length > MaxMessageLength)
+        {
+            return BadRequest(new ChatResponse
+            {
+                Success = false,
+                Error = $"Message exceeds maximum length of {MaxMessageLength} characters"
             });
         }
 
