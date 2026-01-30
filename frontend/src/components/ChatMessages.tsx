@@ -14,7 +14,7 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex-1 overflow-y-auto space-y-4 py-4 min-h-0">
+    <div className="chat-messages flex-1 overflow-y-auto space-y-4 py-4 min-h-0">
       {messages.map((msg) => (
         <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
           <div
